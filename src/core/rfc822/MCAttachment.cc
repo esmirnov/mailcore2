@@ -140,6 +140,22 @@ Attachment * Attachment::attachmentWithContentsOfFile(String * filename)
 	return (Attachment *) attachment->autorelease();
 }
 
+Attachment * Attachment::attachmentWithDataAndFileName(Data * data, String * filename)
+{
+    Attachment * attachment;
+	String * mimeType;
+
+    attachment = new Attachment();
+    mimeType = Attachment::mimeTypeForFilename(filename);
+	if (mimeType != NULL) {
+        attachment->setMimeType(mimeType);
+	}
+	attachment->setFilename(filename->lastPathComponent());
+    attachment->setData(data);
+	
+	return (Attachment *) attachment->autorelease();
+}
+
 Attachment * Attachment::attachmentWithHTMLString(String * htmlString)
 {
 	Data * data;

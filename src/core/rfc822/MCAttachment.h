@@ -17,6 +17,7 @@ namespace mailcore {
 	public:
 		static String * mimeTypeForFilename(String * filename);
 		static Attachment * attachmentWithContentsOfFile(String * filename);
+        static Attachment * attachmentWithDataAndFileName(Data * data, String * filename);
 		static Attachment * attachmentWithHTMLString(String * htmlString);
 		static Attachment * attachmentWithRFC822Message(Data * messageData);
 		static Attachment * attachmentWithText(String * text);

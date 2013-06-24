@@ -66,6 +66,12 @@
     return MCO_TO_OBJC(result);
 }
 
++ (MCOAttachment *) attachmentWithData:(NSData*)data fileName:(NSString *)filename
+{
+    mailcore::Attachment * result = mailcore::Attachment::attachmentWithDataAndFileName([data mco_mcData], [filename mco_mcString]);
+    return MCO_TO_OBJC(result);
+}
+
 + (MCOAttachment *) attachmentWithHTMLString:(NSString *)htmlString
 {
     mailcore::Attachment * result = mailcore::Attachment::attachmentWithHTMLString([htmlString mco_mcString]);
